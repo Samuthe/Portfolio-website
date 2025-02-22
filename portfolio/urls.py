@@ -15,7 +15,7 @@ from django.conf.urls.static import static
 handler404 = handler404
 
 urlpatterns = [
-
+    path('admin/', admin.site.urls),
     path('', homePage, name='homePage'),
     path('projects/', projectsPage, name='projectsPage'),
     path('projects/<str:slug>/', projectDetail, name='projectDetail'),

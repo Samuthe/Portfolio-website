@@ -111,22 +111,26 @@ hr {
   }
 @keyframes animate {
     30%{
-        content: 'Abdelaali ES SALMI';
+        content: 'SAMUEL MUKUNA EKATI';
         opacity: 1;
     }
+
     45%{
         opacity: 0;
     }
+
     65%{
-        content: 'Programmer';
+        content: 'DEVELOPER';
         opacity: 1;
         
     }
+
     70%{
         opacity: 0;
     }
+    
     80%{
-        content: 'Full Stack Developer';
+        content: 'WEB AND SYSTEM DEVELOPER';
         opacity: 1;
     }
 }
