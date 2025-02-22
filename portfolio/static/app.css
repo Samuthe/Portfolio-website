@@ -257,6 +257,7 @@ hr {
 .competence-modal h5{
     color: var(--color);
     font-weight: 500;
+    transition: all .7s;
 }
 .competence-modal .modal-body {
     color: var(--color);
