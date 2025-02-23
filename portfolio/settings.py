@@ -16,7 +16,15 @@ SECRET_KEY = config('SECRET_KEY', default='fallback-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "127.0.0.1",  # Local development
+    "localhost",  # Local development
+    "portfolio-website-u7mq.onrender.com",  # Your Render domain
+]
+
+
+# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "portfolio-website-u7mq.onrender.com").split(",")
 
 CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
