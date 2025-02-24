@@ -10,6 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+CLOUDINARY_STORAGE_NAME_KEY = os.getenv('CLOUDINARY_STORAGE_NAME_KEY')
+CLOUDINARY_STORAGE_API_KEY = os.getenv('CLOUDINARY_STORAGE_API_KEY')
+CLOUDINARY_STORAGE_SECRET_KEY = os.getenv('CLOUDINARY_STORAGE_SECRET_KEY')
 
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
@@ -104,7 +107,12 @@ DATABASES = {
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
 }
-
+# Storage settings
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': CLOUDINARY_STORAGE_NAME_KEY,
+    'API_KEY': CLOUDINARY_STORAGE_API_KEY,
+    'API_SECRET': CLOUDINARY_STORAGE_SECRET_KEY,
+}
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
