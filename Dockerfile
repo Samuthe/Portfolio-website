@@ -26,7 +26,7 @@ ENV PYTHONUNBUFFERED=1
 
 # Run migrations and collect static files
 RUN python manage.py migrate
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 
 # Expose port 8000
 EXPOSE 8000
