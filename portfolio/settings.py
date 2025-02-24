@@ -1,6 +1,5 @@
 from pathlib import Path
 from decouple import config
-import dj_database_url
 from dotenv import load_dotenv 
 import os
 
@@ -24,8 +23,6 @@ CORS_ALLOW_CREDENTIALS = True
 
 LOGIN_URL = '/dashboard/login/'
 LOGOUT_URL = '/dashboard/logout/'
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -107,7 +104,7 @@ DATABASES = {
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
 }
-# Storage settings
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': CLOUDINARY_STORAGE_NAME_KEY,
     'API_KEY': CLOUDINARY_STORAGE_API_KEY,
@@ -116,13 +113,12 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 
 

@@ -6,6 +6,7 @@
         "dotenv",
         "getenv",
         "gunicorn",
+        "Hacs",
         "hlrw",
         "libsqlite",
         "makemigrations",

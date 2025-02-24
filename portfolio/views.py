@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
@@ -68,7 +69,7 @@ def homePage(request):
             'experiences': experiences,
             'projects': projects,
             'form': form,
-            # 'recaptcha_key': config("recaptcha_site_key", default="")
+            'recaptcha_key': os.getenv('RECAPTCHA_SITE_KEY')
         }
     return render(request, template_name, context)
 
