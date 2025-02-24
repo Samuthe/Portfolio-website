@@ -91,29 +91,45 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
-if not DEBUG:
-    # Database
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=config('DATABASE_URL', default='mysql://root:Hacs!1tack@127.0.0.1:3306/mysql')
-        )
-    }
+# if not DEBUG:
+#     # Database
+#     # DATABASES = {
+#     #     'default': dj_database_url.config(
+#     #         default=config('DATABASE_URL', default='mysql://root:Hacs!1tack@127.0.0.1:3306/mysql')
+#     #     )
+#     # }
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         }
+#     }
 
-    # Storage settings
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': config('CLOUD_NAME', default=''),
-        'API_KEY': config('API_KEY', default=''),
-        'API_SECRET': config('API_SECRET', default=''),
-    }
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#     # Storage settings
+#     CLOUDINARY_STORAGE = {
+#         'CLOUD_NAME': config('CLOUD_NAME', default=''),
+#         'API_KEY': config('API_KEY', default=''),
+#         'API_SECRET': config('API_SECRET', default=''),
+#     }
+#     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default='mysql://root:Hacs!1tack@127.0.0.1:3306/mysql'
-        )
-    }
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default='mysql://root:Hacs!1tack@127.0.0.1:3306/mysql'
+#         )
+#     }
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # if not DEBUG:
