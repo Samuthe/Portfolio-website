@@ -6,25 +6,16 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='fallback-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['https://portfolio-website-1-yc1b.onrender.com']
-# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "portfolio-website-u7mq.onrender.com").split(",")
-# ALLOWED_HOSTS = ['portfolio-website-u7mq.onrender.com']
+ALLOWED_HOSTS = ['https://portfolio-website-1-yc1b.onrender.com', 'portfolio-website-1-yc1b.onrender.com']
 
 
-# ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "portfolio-website-u7mq.onrender.com").split(",")
-
-CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 LOGIN_URL = '/dashboard/login/'
