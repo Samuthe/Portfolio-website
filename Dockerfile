@@ -24,9 +24,9 @@ COPY . .
 ENV DJANGO_SETTINGS_MODULE=portfolio.settings
 ENV PYTHONUNBUFFERED=1
 
-# Run migrations and collect static files
+# Run migrations
+RUN python manage.py makemigrations
 RUN python manage.py migrate
-# RUN python manage.py collectstatic --noinput
 
 # Expose port 8000
 EXPOSE 8000
