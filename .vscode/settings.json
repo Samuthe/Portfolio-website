@@ -3,6 +3,7 @@
     "cSpell.words": [
         "collectstatic",
         "createsuperuser",
+        "getenv",
         "gunicorn",
         "libsqlite",
         "makemigrations",

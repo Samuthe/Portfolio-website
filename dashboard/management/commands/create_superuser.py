@@ -15,6 +15,8 @@ class Command(BaseCommand):
         if not username or not email or not password:
             self.stderr.write("❌ Missing environment variables for superuser creation!")
             return
+        else:
+            self.stdout.write(f"🔧 Creating superuser...\n username={username}")
 
         if not User.objects.filter(username=username).exists():
             User.objects.create_superuser(username=username, email=email, password=password)
