@@ -21,10 +21,10 @@ COPY . .
 ENV DJANGO_SETTINGS_MODULE=portfolio.settings
 ENV PYTHONUNBUFFERED=1
 
-# RUN python manage.py makemigrations
-# RUN python manage.py migrate
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 
-# RUN python manage.py create_superuser
+RUN python manage.py create_superuser
 
 EXPOSE 8000
 
