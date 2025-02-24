@@ -1,18 +1,19 @@
+from pathlib import Path
 from decouple import config
 import dj_database_url
-
+from dotenv import load_dotenv 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='fallback-secret-key')
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-ALLOWED_HOSTS = ['https://portfolio-website-1-yc1b.onrender.com', 'portfolio-website-1-yc1b.onrender.com']
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
+
+ALLOWED_HOSTS = ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1').split(',')
 
 
 CORS_ORIGIN_ALLOW_ALL = True
