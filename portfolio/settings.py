@@ -80,16 +80,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # if not DEBUG:
 #     # Database
-#     # DATABASES = {
-#     #     'default': dj_database_url.config(
-#     #         default=config('DATABASE_URL', default='mysql://root:Hacs!1tack@127.0.0.1:3306/mysql')
-#     #     )
-#     # }
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default=config('DATABASE_URL', default='mysql://root:Hacs!1tack@127.0.0.1:3306/mysql')
+#         )
+#     }
 #     # Storage settings
 #     CLOUDINARY_STORAGE = {
-#         'CLOUD_NAME': config('CLOUD_NAME', default=''),
-#         'API_KEY': config('API_KEY', default=''),
-#         'API_SECRET': config('API_SECRET', default=''),
+#         'CLOUD_NAME': CLOUDINARY_STORAGE_NAME_KEY,
+#         'API_KEY': CLOUDINARY_STORAGE_API_KEY,
+#         'API_SECRET': CLOUDINARY_STORAGE_SECRET_KEY,
 #     }
 #     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 #     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -115,45 +115,6 @@ CLOUDINARY_STORAGE = {
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# if not DEBUG:
-#     # Database
-#     # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-#     DATABASES = {
-#         'default': dj_database_url.config(
-#             default=config('DATABASE_URL')
-#         )
-#     }
-    
-#     # Storage settings
-#     CLOUDINARY_STORAGE = {
-#         'CLOUD_NAME': config('CLOUD_NAME', default=''),
-#         'API_KEY': config('API_KEY', default=''),
-#         'API_SECRET': config('API_SECRET', default=''),
-#     }
-#     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-#     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-    # DATABASES = {
-    #     'default': {
-    #         # 'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'USER': 'root',
-    #         'PASSWORD': 'Hacs!1tack',
-    #         'HOST': '127.0.0.1',
-    #         'PORT': '3306'
-    #     }
-    # }
-
-#     DATABASES = {
-#     'default': dj_database_url.config(
-#         default=config('DATABASE_URL', default='mysql://mhacs:Hacs!1tack@127.0.0.1:3306/mysql')
-#     )
-# }
-
 
 # Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
