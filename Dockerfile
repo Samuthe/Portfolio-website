@@ -25,22 +25,12 @@ ENV DJANGO_SETTINGS_MODULE=portfolio.settings
 ENV PYTHONUNBUFFERED=1
 
 # Run migrations
-RUN python manage.py makemigrations && python manage.py migrate
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 
-# Pass environment variables at build time
-ARG DJANGO_SUPERUSER_USERNAME
-ARG DJANGO_SUPERUSER_EMAIL
-ARG DJANGO_SUPERUSER_PASSWORD
+# Create superuser
+RUN python manage.py create_superuser
 
-# Ensure they are available during build
-ENV DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
-ENV DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
-ENV DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
-
-# Create superuser only if it does not exist
-RUN python manage.py shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); \
-    User.objects.filter(username='${DJANGO_SUPERUSER_USERNAME}').exists() or \
-    User.objects.create_superuser('${DJANGO_SUPERUSER_USERNAME}', '${DJANGO_SUPERUSER_EMAIL}', '${DJANGO_SUPERUSER_PASSWORD}')"
 
 # Expose port 8000
 EXPOSE 8000
