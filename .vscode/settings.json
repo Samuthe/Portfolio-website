@@ -1,3 +1,13 @@
 {
-    "python.pythonPath": "/Users/aes-salm/.brew/bin/python3"
+    "python.pythonPath": "/Users/aes-salm/.brew/bin/python3",
+    "cSpell.words": [
+        "collectstatic",
+        "gunicorn",
+        "libsqlite",
+        "makemigrations",
+        "pycache",
+        "PYTHONUNBUFFERED",
+        "staticfiles",
+        "wsgi"
+    ]
 }
