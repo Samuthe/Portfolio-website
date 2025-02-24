@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,portfolio-website-1-yc1b.onrender.com').split(',')
 
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -82,13 +82,6 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 #     #         default=config('DATABASE_URL', default='mysql://root:Hacs!1tack@127.0.0.1:3306/mysql')
 #     #     )
 #     # }
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         }
-#     }
-
 #     # Storage settings
 #     CLOUDINARY_STORAGE = {
 #         'CLOUD_NAME': config('CLOUD_NAME', default=''),
