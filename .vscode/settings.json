@@ -2,9 +2,11 @@
     "python.pythonPath": "/Users/aes-salm/.brew/bin/python3",
     "cSpell.words": [
         "collectstatic",
+        "createsuperuser",
         "gunicorn",
         "libsqlite",
         "makemigrations",
+        "noinput",
         "onrender",
         "pycache",
         "PYTHONUNBUFFERED",

@@ -26,7 +26,8 @@ ENV PYTHONUNBUFFERED=1
 
 # Run migrations
 RUN python manage.py makemigrations
-RUN python manage.py migrate
+RUN python manage.py migrate && \
+    python manage.py createsuperuser --noinput || true
 
 # Expose port 8000
 EXPOSE 8000
