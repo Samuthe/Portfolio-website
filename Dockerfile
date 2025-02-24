@@ -21,11 +21,11 @@ COPY . .
 ENV DJANGO_SETTINGS_MODULE=portfolio.settings
 ENV PYTHONUNBUFFERED=1
 
-RUN python manage.py makemigrations
-RUN python manage.py migrate
+# RUN python manage.py makemigrations
+# RUN python manage.py migrate
 
 RUN python manage.py create_superuser
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "portfolio.wsgi:application"]
+CMD ["sh", "-c", "python manage.py migrate && ["gunicorn", "--bind", "0.0.0.0:8000", "portfolio.wsgi:application"]
