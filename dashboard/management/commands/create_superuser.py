@@ -8,9 +8,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         User = get_user_model()
         
-        username = os.getenv("DJANGO_SUPERUSER_USERNAME")
-        email = os.getenv("DJANGO_SUPERUSER_EMAIL")
-        password = os.getenv("DJANGO_SUPERUSER_PASSWORD")
+        username = os.getenv("DJANGO_SUPERUSER_USERNAME", "admin")
+        email = os.getenv("DJANGO_SUPERUSER_EMAIL", 'ekatisamuel@gmail.com')
+        password = os.getenv("DJANGO_SUPERUSER_PASSWORD", 'admin')
 
         if not username or not email or not password:
             self.stderr.write("❌ Missing environment variables for superuser creation!")
