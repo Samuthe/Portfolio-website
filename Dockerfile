@@ -10,7 +10,10 @@ RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     curl \
     ca-certificates \
+    gnupg \
+    lsb-release \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Copy requirements and install dependencies
 COPY requirements.txt .
