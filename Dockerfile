@@ -27,7 +27,10 @@ ENV PYTHONUNBUFFERED=1
 # Run migrations
 RUN python manage.py makemigrations
 RUN python manage.py migrate && \
-    python manage.py createsuperuser --noinput || true
+    echo "from django.contrib.auth import get_user_model; \
+    User = get_user_model(); \
+    User.objects.create_superuser('${DJANGO_SUPERUSER_USERNAME}', '${DJANGO_SUPERUSER_EMAIL}', '${DJANGO_SUPERUSER_PASSWORD}')" \
+    | python manage.py shell || true
 
 # Expose port 8000
 EXPOSE 8000
